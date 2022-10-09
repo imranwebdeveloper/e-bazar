@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import About from "../page/About";
+import Details from "../page/Details";
 import Home from "../page/Home";
 import Inventory from "../page/Inventory";
 import Orders from "../page/Orders";
-import Shop from "../page/Shop";
 
 export const router = createBrowserRouter([
   {
@@ -18,10 +18,7 @@ export const router = createBrowserRouter([
           return fetch("db.json");
         },
       },
-      {
-        path: "shop",
-        element: <Shop />,
-      },
+
       {
         path: "orders",
         element: <Orders />,
@@ -33,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "product/:id",
+        element: <Details />,
       },
     ],
   },

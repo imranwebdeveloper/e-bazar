@@ -1,8 +1,11 @@
-import React from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 const Cart = () => {
+  const { cart } = useContext(CartContext);
   return (
-    <div>
+    <Link to="/orders" className="px-3 py-1 relative">
       <span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +22,10 @@ const Cart = () => {
           />
         </svg>
       </span>
-    </div>
+      <span className="absolute top-[-6px] left-6 z-20 w-4 h-4 flex justify-center items-center bg-rose-500 text-[10px] font-bold text-white rounded-full">
+        {cart}
+      </span>
+    </Link>
   );
 };
 

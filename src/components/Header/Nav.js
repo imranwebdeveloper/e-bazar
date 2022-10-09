@@ -5,26 +5,6 @@ const Nav = () => {
   return (
     <nav>
       <ul className="flex gap-2">
-        <li className="px-3 py-1">
-          <NavLink
-            to="/shop"
-            className={({ isActive }) =>
-              isActive ? `border-b-2 border-orange-300` : undefined
-            }
-          >
-            Shop
-          </NavLink>
-        </li>
-        <li className="px-3 py-1  ">
-          <NavLink
-            to="/orders"
-            className={({ isActive }) =>
-              isActive ? `border-b-2 border-orange-300` : undefined
-            }
-          >
-            Orders
-          </NavLink>
-        </li>
         <li className="px-3 py-1 ">
           <NavLink
             to="/inventory"

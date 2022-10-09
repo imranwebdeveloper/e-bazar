@@ -143,19 +143,6 @@
     "quantity": 0
   },
   {
-    "id": "8a5b4a9c-76ea-4fbb-9c70-9548de4eab01",
-    "category": "Men's Pants",
-    "name": "TIRO 21 TRACK PANTS",
-    "seller": "Addidas",
-    "price": 109,
-    "stock": 6,
-    "ratings": 5,
-    "ratingsCount": 1688,
-    "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9c7058d8677742ac8519ac3f009cdcf4_9366/Tiro_21_Track_Pants_Black_GH7305_21_model.jpg",
-    "shipping": 48,
-    "quantity": 0
-  },
-  {
     "id": "b357e19b-4dd9-4fc7-b5c0-9ed5255464ba",
     "category": "Men's Pants",
     "name": "PRIMEBLUE SST TRACK PANTS",
@@ -220,19 +207,7 @@
     "shipping": 26,
     "quantity": 0
   },
-  {
-    "id": "fd52819a-cb78-4510-ad2f-c5bdd888ae78",
-    "category": "Men's Pants",
-    "name": "FRENCH TERRY TAPERED CUFF LOGO PANTS",
-    "seller": "Addidas",
-    "price": 189,
-    "stock": 27,
-    "ratings": 3,
-    "ratingsCount": 1974,
-    "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3fb5325716cc4e45a76bac4700ea31dc_9366/Essentials_French_Terry_Tapered_Cuff_Logo_Pants_Black_GK8968_21_model.jpg",
-    "shipping": 20,
-    "quantity": 0
-  },
+
   {
     "id": "c667d3ff-41eb-4cf7-a433-819d959ea768",
     "category": "Men's Pants",
