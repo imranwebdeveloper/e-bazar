@@ -15,7 +15,7 @@ const JustForYou = () => {
   return (
     <div className="grid-cols-[repeat(auto-fit,_minmax(250px,_300px)]">
       <h2 className="h2 mb-2">Just For You</h2>
-      <ProductSection addStyle={"grid md:grid-cols-2 xl:grid-cols-4 gap-2"}>
+      <ProductSection addStyle={"grid md:grid-cols-2 xl:grid-cols-3  gap-2"}>
         {randomProduct.map((product) => (
           <Card key={product.id} product={product} />
         ))}

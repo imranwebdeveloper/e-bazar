@@ -1,26 +1,21 @@
-import {
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Section from "../../components/common/Section";
-import { userAuth } from "../../firebase/firebase.config";
+import { UserContext } from "../../context/UserContext";
 
 const Register = () => {
-  const provider = new GoogleAuthProvider();
+  const { createUser, signWithGoogle } = useContext(UserContext);
   const registerHandler = (event) => {
     event.preventDefault();
     const userEmail = event.target.email.value;
     const userPassword = event.target.password.value;
-    createUserWithEmailAndPassword(userAuth, userEmail, userPassword)
-      .then((user) => console.log(user.user))
+    createUser(userEmail, userPassword)
+      .then(() => {})
       .catch((e) => console.log(e));
   };
   const googleHandler = () => {
-    signInWithPopup(userAuth, provider)
-      .then((result) => console.log(result))
+    signWithGoogle()
+      .then(() => {})
       .catch((e) => console.log(e));
   };
 

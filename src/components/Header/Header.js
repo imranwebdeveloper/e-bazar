@@ -10,8 +10,10 @@ const Header = () => {
       <div className="fixed-container flex gap-4 border-b-2 items-center py-3">
         <Logo />
         <Search />
-        <Nav />
-        <Cart />
+        <div className=" flex">
+          <Cart />
+          <Nav />
+        </div>
       </div>
     </header>
   );
