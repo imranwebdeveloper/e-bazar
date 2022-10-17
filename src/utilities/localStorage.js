@@ -12,3 +12,8 @@ export const setData = (id) => {
   localStorage.setItem("previous-cart", totalProduct);
   return totalProduct;
 };
+export const getData = () => {
+  const localData = localStorage.getItem("shopping-cart");
+  const cartId = JSON.parse(localData);
+  return cartId;
+};

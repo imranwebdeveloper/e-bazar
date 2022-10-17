@@ -1,6 +1,25 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import { getData } from "../../utilities/localStorage";
 
 const OrderDetails = () => {
+  const products = useLoaderData();
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    const totalCartDetails = [];
+    const carts = getData();
+    for (const id in carts) {
+      const cartDetails = products.find((item) => {
+        return item.id === id;
+      });
+      cartDetails.quantity = carts[id];
+      totalCartDetails.push(cartDetails);
+    }
+    setOrders(totalCartDetails);
+  }, [products]);
+  console.log(orders);
   return (
     <div className="overflow-x-auto w-full bg-white">
       <table className="table w-full ">
