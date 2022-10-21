@@ -1,12 +1,14 @@
-import React from "react";
 import { CartContextProvider } from "./CartContext";
+import ProductsContextProvider from "./ProductsContextProvider";
 import { UserContextProvider } from "./UserContext";
 
 const ContextProvider = ({ children }) => {
   return (
-    <UserContextProvider>
-      <CartContextProvider>{children}</CartContextProvider>
-    </UserContextProvider>
+    <ProductsContextProvider>
+      <UserContextProvider>
+        <CartContextProvider>{children}</CartContextProvider>
+      </UserContextProvider>
+    </ProductsContextProvider>
   );
 };
 

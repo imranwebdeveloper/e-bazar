@@ -6,7 +6,7 @@ import Search from "./Search";
 
 const Header = () => {
   return (
-    <header>
+    <header className="fixed w-full bg-white top-0 z-30">
       <div className="fixed-container flex gap-4 border-b-2 items-center py-3">
         <Logo />
         <Search />

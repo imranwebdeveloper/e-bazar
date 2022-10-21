@@ -13,21 +13,18 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    loader: async () => {
+      return fetch("db.json");
+    },
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: async () => {
-          return fetch("db.json");
-        },
       },
 
       {
         path: "orders",
         element: <Orders />,
-        loader: async () => {
-          return fetch("db.json");
-        },
       },
       {
         path: "inventory",

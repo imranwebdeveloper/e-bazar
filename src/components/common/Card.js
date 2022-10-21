@@ -1,16 +1,12 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { setData } from "../../utilities/localStorage";
 
 const Card = ({ product }) => {
   const navigate = useNavigate();
-  const { setCart } = useContext(CartContext);
+  const { setCartToLocalStore } = useContext(CartContext);
   const { id, name, img, price, ratings } = product;
-  const cartHandler = (id) => {
-    const totalCart = setData(id);
-    setCart(totalCart);
-  };
+
   return (
     <article className="border p-3 flex flex-col hover:shadow hover:border-gray-300 rounded">
       <div className="">
@@ -34,7 +30,7 @@ const Card = ({ product }) => {
         </button>
         <button
           className="btn btn-outline btn-sm btn-success"
-          onClick={() => cartHandler(id)}
+          onClick={() => setCartToLocalStore(id)}
         >
           Add To Cart
         </button>

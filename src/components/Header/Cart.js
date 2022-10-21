@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
+  const { totalCart } = useContext(CartContext);
   return (
     <Link to="/orders" className="px-3 py-1 relative">
       <span>
@@ -23,7 +23,7 @@ const Cart = () => {
         </svg>
       </span>
       <span className="absolute top-[-6px] left-6 z-20 w-4 h-4 flex justify-center items-center bg-rose-500 text-[10px] font-bold text-white rounded-full">
-        {cart}
+        {totalCart ? Object.keys(totalCart).length : 0}
       </span>
     </Link>
   );
