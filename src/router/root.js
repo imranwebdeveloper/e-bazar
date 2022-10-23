@@ -13,9 +13,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    loader: async () => {
-      return fetch("db.json");
-    },
+
     children: [
       {
         path: "/",

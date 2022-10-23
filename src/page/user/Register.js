@@ -4,19 +4,17 @@ import Section from "../../components/common/Section";
 import { UserContext } from "../../context/UserContext";
 
 const Register = () => {
-  const { createUser, signWithGoogle } = useContext(UserContext);
+  const createUser = useContext(UserContext);
+  console.log(createUser);
   const registerHandler = (event) => {
     event.preventDefault();
     const userEmail = event.target.email.value;
     const userPassword = event.target.password.value;
-    createUser(userEmail, userPassword)
-      .then(() => {})
-      .catch((e) => console.log(e));
   };
   const googleHandler = () => {
-    signWithGoogle()
-      .then(() => {})
-      .catch((e) => console.log(e));
+    // signWithGoogle()
+    //   .then(() => {})
+    //   .catch((e) => console.log(e));
   };
 
   return (

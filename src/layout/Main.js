@@ -6,13 +6,13 @@ import ContextProvider from "../context/ContextProvider";
 
 const Main = () => {
   return (
-    <ContextProvider>
+    <>
       <Header />
       <main className="bg-slate-100 min-h-screen  mt-16">
         <Outlet />
       </main>
       <Footer />
-    </ContextProvider>
+    </>
   );
 };
 

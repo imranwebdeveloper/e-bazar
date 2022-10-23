@@ -10,7 +10,7 @@ const Nav = () => {
     <nav>
       <ul className="flex gap-2">
         <li className="px-3 py-1 ">
-          {user?.displayName ? (
+          {user ? (
             <UserAvatar />
           ) : (
             <NavLink

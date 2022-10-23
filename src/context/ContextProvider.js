@@ -1,6 +1,6 @@
-import { CartContextProvider } from "./CartContext";
+import { CartContextProvider } from "./CartContextProvider";
 import ProductsContextProvider from "./ProductsContextProvider";
-import { UserContextProvider } from "./UserContext";
+import UserContextProvider from "./UserContext";
 
 const ContextProvider = ({ children }) => {
   return (

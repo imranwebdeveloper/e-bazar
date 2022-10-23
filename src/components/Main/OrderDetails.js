@@ -3,24 +3,24 @@ import { ProductContext } from "../../context/ProductsContextProvider";
 import { getDataFromLocalStore } from "../../utilities/localStorage";
 
 const OrderDetails = () => {
-  const { allProduct } = useContext(ProductContext);
-  const [orders, setOrder] = useState([]);
+  // const { allProduct } = useContext(ProductContext);
+  // const [orders, setOrder] = useState([]);
 
-  useEffect(() => {
-    const localCart = getDataFromLocalStore();
-    const allC = [];
-    for (const key in localCart) {
-      const allCart = allProduct.find((item) => item.id === key);
-      allCart.quantity = localCart[key];
-      allC.push(allCart);
-    }
-    setOrder(allC);
-  }, [allProduct]);
-  console.log(orders);
+  // useEffect(() => {
+  //   const localCart = getDataFromLocalStore();
+  //   const allC = [];
+  //   for (const key in localCart) {
+  //     const allCart = allProduct.find((item) => item.id === key);
+  //     allCart.quantity = localCart[key];
+  //     allC.push(allCart);
+  //   }
+  //   setOrder(allC);
+  // }, [allProduct]);
+  // console.log(orders);
 
   return (
     <div className=" w-full">
-      {orders.map(({ id, img, name, category, quantity, price }) => {
+      {/* {orders.map(({ id, img, name, category, quantity, price }) => {
         return (
           <div
             key={id}
@@ -47,7 +47,7 @@ const OrderDetails = () => {
             </div>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };

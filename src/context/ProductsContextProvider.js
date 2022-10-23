@@ -1,16 +1,28 @@
-import React, { createContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { getDataFromLocalStore } from "../utilities/localStorage";
+import React, { createContext, useState } from "react";
+import { useEffect } from "react";
 
-export const ProductContext = createContext("products");
+export const ProductsContext = createContext("products");
+
 const ProductsContextProvider = ({ children }) => {
-  const allProduct = useLoaderData();
-  const randomProducts = allProduct.slice(0, 20);
-  const products = { allProduct, randomProducts };
+  const [allProducts, setAllProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [randomProducts, setRandomProduct] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const res = await fetch("db.json");
+      const data = await res.json();
+      setRandomProduct(data.slice(0, 20));
+      setAllProducts(data);
+      setLoading(false);
+    };
+    fetchData();
+  }, [setAllProducts]);
+  const productValue = { loading, allProducts, randomProducts };
   return (
-    <ProductContext.Provider value={products}>
+    <ProductsContext.Provider value={productValue}>
       {children}
-    </ProductContext.Provider>
+    </ProductsContext.Provider>
   );
 };
 
