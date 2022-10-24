@@ -4,7 +4,7 @@ import { CartContext } from "../../context/CartContextProvider";
 
 const Card = ({ product }) => {
   const navigate = useNavigate();
-  const { setCartToLocalStore } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const { id, name, img, price, ratings } = product;
 
   return (
@@ -30,7 +30,7 @@ const Card = ({ product }) => {
         </button>
         <button
           className="btn btn-outline btn-sm btn-success"
-          onClick={() => setCartToLocalStore(id)}
+          onClick={() => addToCart(product)}
         >
           Add To Cart
         </button>

@@ -1,4 +1,4 @@
-import { CartContextProvider } from "./CartContextProvider";
+import CartContextProvider from "./CartContextProvider";
 import ProductsContextProvider from "./ProductsContextProvider";
 import UserContextProvider from "./UserContext";
 

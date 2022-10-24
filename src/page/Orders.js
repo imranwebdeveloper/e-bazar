@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "../components/common/Section";
 import OrderDetails from "../components/Main/OrderDetails";
 import OrdersSummary from "../components/Main/OrdersSummary";
