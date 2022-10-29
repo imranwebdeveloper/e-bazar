@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 
 const OrderDetails = () => {
-  const { cart } = useContext(CartContext);
+  // const { cart } = useContext(CartContext);
   return (
     <div className=" w-full">
-      {cart.map(({ id, img, name, category, quantity, price }) => {
+      {/* {cart.map(({ id, img, name, category, quantity, price }) => {
         return (
           <div
             key={id}
@@ -32,7 +32,7 @@ const OrderDetails = () => {
             </div>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };

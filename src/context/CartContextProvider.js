@@ -1,35 +1,19 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
-import { ProductsContext } from "./ProductsContextProvider";
 
 export const CartContext = createContext("cart");
-
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState(0);
 
-  const { allProducts } = useContext(ProductsContext);
   useEffect(() => {
     const previousCart = JSON.parse(localStorage.getItem("shopping-cart"));
-
     if (previousCart) {
-      const currentCart = [];
-      for (const key in previousCart) {
-        const item = allProducts.find((item) => item.id === key);
-        if (item) currentCart.push(item);
-      }
+      const currentCart = Object.keys(previousCart).length;
       setCart(currentCart);
     }
-  }, [allProducts]);
+  }, []);
 
-  const addToCart = (product) => {
-    const ti = cart.find((item) => item.id === product.id);
-    if (!ti) {
-      setCart((pre) => [...pre, product]);
-    }
-  };
-
-  const cartValue = { cart, loading, addToCart };
+  const cartValue = { cart, setCart };
   return (
     <CartContext.Provider value={cartValue}>{children}</CartContext.Provider>
   );

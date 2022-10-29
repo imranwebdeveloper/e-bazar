@@ -1,28 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
-import { useEffect } from "react";
-import { CartContext } from "./CartContextProvider";
+import React, { createContext } from "react";
+
+import useFetch from "../hook/useFetch";
 
 export const ProductsContext = createContext("products");
-
 const ProductsContextProvider = ({ children }) => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [randomProducts, setRandomProduct] = useState([]);
-  const setCart = useContext(CartContext);
+  const { data, loading } = useFetch("db.json");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const res = await fetch("db.json");
-      const data = await res.json();
-      setRandomProduct(data.slice(0, 20));
-      setAllProducts(data);
-      setLoading(false);
-    };
-    fetchData();
-  }, [setAllProducts]);
-
-  const productValue = { loading, allProducts, randomProducts };
+  const productValue = { loading, data };
   return (
     <ProductsContext.Provider value={productValue}>
       {children}
