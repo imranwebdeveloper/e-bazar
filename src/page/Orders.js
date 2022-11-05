@@ -5,7 +5,7 @@ import OrdersSummary from "../components/Main/OrdersSummary";
 const Orders = () => {
   return (
     <Section>
-      <div className="grid grid-cols-[1fr_300px] gap-4">
+      <div className="grid md:grid-cols-[1fr_340px] gap-4">
         <OrderDetails />
         <OrdersSummary />
       </div>

@@ -1,18 +1,29 @@
 export const getDataFromLocalStore = () => {
-  let currentShopping = {};
+  let currentShoppingCart = {};
   const preShoppingCart = localStorage.getItem("shopping-cart");
   if (preShoppingCart) {
-    currentShopping = JSON.parse(preShoppingCart);
+    currentShoppingCart = JSON.parse(preShoppingCart);
   }
-  return currentShopping;
+  return currentShoppingCart;
 };
 
 export const setDataToLocalStore = (product) => {
   let newShoppingCart = getDataFromLocalStore();
+  let newProduct;
   const quantity = newShoppingCart[product.id];
-  quantity
-    ? (newShoppingCart[product.id] = quantity + 1)
-    : (newShoppingCart[product.id] = 1);
+  if (quantity) {
+    newShoppingCart[product.id] = quantity + 1;
+  } else {
+    newShoppingCart[product.id] = 1;
+    newProduct = product;
+  }
+  product.quantity = newShoppingCart[product.id];
   localStorage.setItem("shopping-cart", JSON.stringify(newShoppingCart));
-  return Object.keys(newShoppingCart).length;
+  return newProduct;
+};
+
+export const removeDataToLocalStore = (id) => {
+  let currentShoppingCart = getDataFromLocalStore();
+  delete currentShoppingCart[id];
+  localStorage.setItem("shopping-cart", JSON.stringify(currentShoppingCart));
 };

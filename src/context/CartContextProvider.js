@@ -1,19 +1,30 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
-
+import { getDataFromLocalStore } from "../utilities/localStorage";
+import { ProductsContext } from "./ProductsContextProvider";
 export const CartContext = createContext("cart");
 const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState(0);
+  const { data, loading } = useContext(ProductsContext);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    const previousCart = JSON.parse(localStorage.getItem("shopping-cart"));
-    if (previousCart) {
-      const currentCart = Object.keys(previousCart).length;
-      setCart(currentCart);
+    const preShoppingCart = getDataFromLocalStore();
+    const newShoppingCart = [];
+    if (loading) return;
+    for (const key in preShoppingCart) {
+      const currentShoppingCart = data.find((item) => item.id === key);
+      currentShoppingCart.quantity = preShoppingCart[key];
+      newShoppingCart.push(currentShoppingCart);
     }
-  }, []);
+    setCart(newShoppingCart);
+  }, [data, loading]);
+  const cartRemoveHandler = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
 
-  const cartValue = { cart, setCart };
+  const cartValue = { cart, setCart, cartRemoveHandler };
+
   return (
     <CartContext.Provider value={cartValue}>{children}</CartContext.Provider>
   );

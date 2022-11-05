@@ -1,11 +1,18 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
+import { removeDataToLocalStore } from "../../utilities/localStorage";
 
 const OrderDetails = () => {
-  // const { cart } = useContext(CartContext);
+  const { cart, cartRemoveHandler } = useContext(CartContext);
+  const cartDeleteHandler = (id) => {
+    cartRemoveHandler(id);
+    removeDataToLocalStore(id);
+  };
+
   return (
     <div className=" w-full">
-      {/* {cart.map(({ id, img, name, category, quantity, price }) => {
+      {cart.map((item) => {
+        const { id, img, name, category, quantity, price } = item;
         return (
           <div
             key={id}
@@ -25,14 +32,19 @@ const OrderDetails = () => {
                 <span className="px-2">{quantity}</span>
                 <button className="px-2 text-lg font-bold">-</button>
               </div>
-              <p className="font-bold">{price * quantity} Tk.</p>
+              <p className="font-bold">{price} Tk.</p>
               <div>
-                <button className="text-rose-700 ">Delete</button>
+                <button
+                  onClick={() => cartDeleteHandler(id)}
+                  className="text-rose-700 "
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
         );
-      })} */}
+      })}
     </div>
   );
 };

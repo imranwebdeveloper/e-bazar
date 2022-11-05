@@ -8,8 +8,8 @@ const Card = ({ product }) => {
   const { setCart } = useContext(CartContext);
   const { id, name, img, price, ratings } = product;
   const handleCart = (product) => {
-    const cartQuantity = setDataToLocalStore(product);
-    setCart(cartQuantity);
+    const newProduct = setDataToLocalStore(product);
+    newProduct && setCart((pre) => [...pre, newProduct]);
   };
 
   return (

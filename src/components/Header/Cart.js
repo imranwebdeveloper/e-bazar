@@ -23,7 +23,7 @@ const Cart = () => {
         </svg>
       </span>
       <span className="absolute top-[-6px] left-6 z-20 w-4 h-4 flex justify-center items-center bg-rose-500 text-[10px] font-bold text-white rounded-full">
-        {cart}
+        {cart.length}
       </span>
     </Link>
   );
